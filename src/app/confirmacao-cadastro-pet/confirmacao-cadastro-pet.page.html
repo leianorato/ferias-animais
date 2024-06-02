@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirmação de Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Nome do Dono: {{ formData['Nome do Dono'] }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>CPF do Dono: {{ formData['CPF do Dono'] }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>E-mail: {{ formData['E-mail'] }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contato: {{ formData['Contato'] }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Endereço: {{ formData['Endereço'] }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>CEP: {{ formData['CEP'] }}</ion-label>
+    </ion-item>
+
+
+
+  </ion-list>
+  <ion-button color="success" (click)="concluirCadastro()">Concluir</ion-button>
+  <ion-button  color="danger" type="submit" routerLink="/cadastro-pet">Cancelar</ion-button>
+</ion-content>

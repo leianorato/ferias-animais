@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="custom-title">Cadastre sua Hospedagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()">
+  <ion-list>
+    <ng-container *ngFor="let campo of camposHosp">
+      <ion-item>
+        <ion-label position="floating">{{ campo.nome }}</ion-label>
+        <ion-input [size]="campo.tamanho" [type]="campo.tipo" [accept]="campo.accept" [(ngModel)]="formData[campo.nome]" [name]="campo.nome"></ion-input>
+        <ion-icon [name]="campo.icone" slot="start"></ion-icon>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-button color="danger" *ngIf="camposHosp.length > 11" (click)="removerCamposCadastro()">Remover</ion-button>
+  <ion-button (click)="adicionarCamposCadastro()">Cadastrar novo pet</ion-button>
+  <ion-button  color="success" type="submit">Criar Cadastro</ion-button>
+</form>
+</ion-content>
+
+
+
+
+
+

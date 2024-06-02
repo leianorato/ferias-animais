@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-img src="../../assets/images/logo.png"></ion-img>
+  </ion-header>
+
+      <ion-content class="ion-padding" >
+
+      <form (ngSubmit)="login()" [formGroup]="credentials">
+      <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+      >Email inválido</ion-note >
+
+      </ion-item>
+      <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+      >Senhas de seis caracteres</ion-note
+      >
+      </ion-item>
+      <ion-button type="submit" expand="block" color="tertiary"  [disabled]="!credentials.valid">Log in</ion-button>
+
+      </form>
+      <footer class="links-style">
+        <a [routerLink]="['/cadastro-pet']">Cadastrar novo pet</a>
+        <br/>
+        <a [routerLink]="['/cadastro-hospedagem']" >Cadastrar nova hospedagem</a>
+      </footer>
+      </ion-content>

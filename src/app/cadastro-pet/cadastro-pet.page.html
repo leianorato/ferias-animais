@@ -1,0 +1,74 @@
+ <ion-header  [translucent]="true">
+  <ion-toolbar class="custom-back">
+    <ion-title class="custom-title">Cadastre seu PET</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="custom-back">
+  <form (ngSubmit)="onSubmit()">
+  <ion-list>
+    <ng-container *ngFor="let campo of camposPet">
+      <ion-item>
+        <ion-label position="floating">{{ campo.nome }}</ion-label>
+        <ion-input [size]="campo.tamanho" [type]="campo.tipo" [(ngModel)]="formData[campo.nome]" [name]="campo.nome"></ion-input>
+        <ion-icon [name]="campo.icone" slot="start"></ion-icon>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-button color="danger" *ngIf="camposPet.length > 8" (click)="removerCamposCadastro()">Remover</ion-button>
+  <ion-button (click)="adicionarCamposCadastro()">Cadastrar novo pet</ion-button>
+  <ion-button  color="success" type="submit">Criar Cadastro</ion-button>
+</form>
+</ion-content>
+
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar class="custom-back">
+    <ion-title class="custom-title">Cadastre seu PET</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-back">
+  <form [formGroup]="formPet" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ng-container *ngFor="let campo of camposPet">
+        <ion-item>
+          <ion-label position="floating">{{ campo.nome }}</ion-label>
+          <ion-input
+            [type]="campo.tipo"
+
+          ></ion-input>
+          <ion-icon [name]="campo.icone" slot="start"></ion-icon>
+        </ion-item>
+      </ng-container>
+      <ion-item>
+        <ion-label>Data de Nascimento</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="dataNascimento"></ion-datetime>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formPet.get('dataNascimento')?.errors?.['required'] && formPet.get('dataNascimento')?.touched">
+        Informe a data de nascimento.
+      </ion-text>
+      <ion-radio-group formControlName="sexo">
+        <ion-list-header>
+          <ion-label>Sexo</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Masculino</ion-label>
+          <ion-radio slot="start" value="M"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Feminino</ion-label>
+          <ion-radio slot="start" value="F"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-text color="danger" *ngIf="formPet.get('sexo')?.errors?.['required'] && formPet.get('sexo')?.touched">
+        Selecione o sexo
+      </ion-text>
+    </ion-list>
+
+    <ion-button color="danger" *ngIf="camposPet.length > 8" expand="full" (click)="removerCamposCadastro()">Remover</ion-button>
+    <ion-button expand="full" (click)="adicionarCamposCadastro()">Cadastrar novo pet</ion-button>
+    <ion-button color="success" expand="full" type="submit">Criar Cadastro</ion-button>
+  </form>
+</ion-content> -->
