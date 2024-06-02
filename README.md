@@ -2,7 +2,7 @@ Aplicativo integrado ao firebase, fazendo o login e a criação dos itens do for
 
 Para executar deve-se baixar o Node JS e o JDK (Java Development Kit), e demais apps e bibliotecas com os comandos:
 NPM:
-npm install npm --g
+npm install npm --g\n
 Angular:
 npm install -g @angular/cli ou
 npm install -g @angular/cli@latest
